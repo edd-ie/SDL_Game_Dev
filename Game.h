@@ -9,8 +9,13 @@
 #include<iostream>
 
 class Game {
-    SDL_Window* gWindow = 0; //
+    // Window
+    SDL_Window* gWindow = 0;
     SDL_Renderer* gRenderer = 0;
+
+    // Drawing
+    SDL_Texture* gTexture = 0;
+
     bool running;
 public:
     Game() {

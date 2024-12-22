@@ -14,7 +14,8 @@ find_package(SDL_image REQUIRED)
 include_directories(${SDL_IMAGE_INCLUDE_DIR})
 
 add_executable(sdlTest main.cpp
-        Game.h)
+        Game.h
+        resources/Game.cpp)
 
 target_link_libraries(${PROJECT_NAME} ${SDL2_LIBRARY})
 target_link_libraries(${PROJECT_NAME} ${SDL_IMAGE_LIBRARY})
