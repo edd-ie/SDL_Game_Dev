@@ -6,79 +6,33 @@
 #define GAME_H
 
 #include<SDL.h>
-#include<iostream>
 
 class Game {
     // Window
-    SDL_Window* gWindow = 0;
-    SDL_Renderer* gRenderer = 0;
+    SDL_Window* gWindow;
+    SDL_Renderer* gRenderer;
 
     // Drawing
-    SDL_Texture* gTexture = 0;
+    SDL_Texture* gTexture;
+    SDL_Rect sourceRectangle; // the first rectangle
+    SDL_Rect destinationRectangle; // another rectangle
 
     bool running;
 public:
-    Game() {
-        running = false;
-    }
-    ~Game()= default;
+    Game();
+    ~Game();
 
     void init(const char* title, int xPos, int yPos, int width,
-        int height, int flags){
-        
-        // attempt to initialize SDL
-        if(SDL_Init(SDL_INIT_EVERYTHING) == 0)
-        {
-            
-            // init the window
-            gWindow = SDL_CreateWindow(title, xPos, yPos, width, height, flags);
-            
-            if(gWindow != 0){
-                gRenderer = SDL_CreateRenderer(gWindow, -1, 0);
-                if(gRenderer != 0)
-                {
-                    std::cout << "renderer creation success\n";
-                    SDL_SetRenderDrawColor(gRenderer,255,255,255,255);
-                    running = true;
-                }
-                else std::cout << "renderer init fail\n";
-            }
-            else std::cout << "window init fail\n";
-        }
-        else std::cout << "SDL init fail\n";
-    }
+        int height, int flags);
 
-    void render() {
-        SDL_RenderClear(gRenderer); // clear the renderer to the draw color
-        SDL_RenderPresent(gRenderer); // draw to the screen
-    }
-
-    void update(){}
-    void handleEvents() {
-        SDL_Event event;
-        if(SDL_PollEvent(&event))
-        {
-            switch (event.type)
-            {
-                case SDL_QUIT:
-                    running = false;
-                break;
-                default:
-                    break;
-            }
-        }
-    }
-
-    void clean() {
-        std::cout << "cleaning game\n";
-        SDL_DestroyWindow(gWindow);
-        SDL_DestroyRenderer(gRenderer);
-        SDL_Quit();
-    }
-
-    bool isRunning() const {
-        return running;
-    }
+    void render();
+    void update();
+    void handleEvents();
+    void clean();
+    bool isRunning() const;
 };
+
+
+
 
 #endif //GAME_H
