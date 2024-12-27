@@ -49,6 +49,13 @@ cmake_ninja_workdir = X$:/Code/C++/sdlTest/cmake-build-debug/
 
 build cmake_object_order_depends_target_sdlTest: phony || .
 
+build CMakeFiles/sdlTest.dir/TextureManger.cpp.obj: CXX_COMPILER__sdlTest_unscanned_Debug X$:/Code/C++/sdlTest/TextureManger.cpp || cmake_object_order_depends_target_sdlTest
+  DEP_FILE = CMakeFiles\sdlTest.dir\TextureManger.cpp.obj.d
+  FLAGS = -g -std=gnu++23 -fdiagnostics-color=always
+  INCLUDES = -IX:/Code/C++/SDL2/x86_64-w64-mingw32/include/SDL2 -IX:/Code/C++/SDL2_image/x86_64-w64-mingw32/include/SDL2
+  OBJECT_DIR = CMakeFiles\sdlTest.dir
+  OBJECT_FILE_DIR = CMakeFiles\sdlTest.dir
+
 build CMakeFiles/sdlTest.dir/Game.cpp.obj: CXX_COMPILER__sdlTest_unscanned_Debug X$:/Code/C++/sdlTest/Game.cpp || cmake_object_order_depends_target_sdlTest
   DEP_FILE = CMakeFiles\sdlTest.dir\Game.cpp.obj.d
   FLAGS = -g -std=gnu++23 -fdiagnostics-color=always
@@ -71,7 +78,7 @@ build CMakeFiles/sdlTest.dir/main.cpp.obj: CXX_COMPILER__sdlTest_unscanned_Debug
 #############################################
 # Link the executable sdlTest.exe
 
-build sdlTest.exe: CXX_EXECUTABLE_LINKER__sdlTest_Debug CMakeFiles/sdlTest.dir/Game.cpp.obj CMakeFiles/sdlTest.dir/main.cpp.obj | X$:/Code/C++/SDL2/x86_64-w64-mingw32/lib/libSDL2main.a X$:/Code/C++/SDL2/x86_64-w64-mingw32/lib/libSDL2.dll.a X$:/Code/C++/SDL2_image/x86_64-w64-mingw32/lib/libSDL2_image.dll.a
+build sdlTest.exe: CXX_EXECUTABLE_LINKER__sdlTest_Debug CMakeFiles/sdlTest.dir/TextureManger.cpp.obj CMakeFiles/sdlTest.dir/Game.cpp.obj CMakeFiles/sdlTest.dir/main.cpp.obj | X$:/Code/C++/SDL2/x86_64-w64-mingw32/lib/libSDL2main.a X$:/Code/C++/SDL2/x86_64-w64-mingw32/lib/libSDL2.dll.a X$:/Code/C++/SDL2_image/x86_64-w64-mingw32/lib/libSDL2_image.dll.a
   FLAGS = -g
   LINK_LIBRARIES = -lmingw32  -mwindows  X:/Code/C++/SDL2/x86_64-w64-mingw32/lib/libSDL2main.a  X:/Code/C++/SDL2/x86_64-w64-mingw32/lib/libSDL2.dll.a  X:/Code/C++/SDL2_image/x86_64-w64-mingw32/lib/libSDL2_image.dll.a  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\sdlTest.dir

@@ -7,15 +7,15 @@
 
 #include<SDL.h>
 
+class TextureManager;
+
 class Game {
     // Window
-    SDL_Window* gWindow;
-    SDL_Renderer* gRenderer;
+    SDL_Window* mainWindow;
+    SDL_Renderer* renderer;
 
     // Drawing
-    SDL_Texture* gTexture;
-    SDL_Rect sourceRectangle; // the first rectangle
-    SDL_Rect destinationRectangle; // another rectangle
+    int currentFrame;
 
     bool running;
 public:

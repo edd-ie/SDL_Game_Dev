@@ -1,15 +1,17 @@
 //
 // Created by _edd.ie_ on 22/12/2024.
 //
-#include "Game.h"
+
 #include<iostream>
-#include<SDL_image.h>
+#include "Game.h"
+#include "TextureManager.h"
+
 
 Game::Game() {
     running = false;
-    gTexture = nullptr;
-    gWindow = nullptr;
-    gRenderer = nullptr;
+    currentFrame = 0;
+    mainWindow = nullptr;
+    renderer = nullptr;
 }
 
 Game::~Game() = default;
@@ -22,32 +24,20 @@ void Game::init(const char* title, int xPos, int yPos, int width,
     if(SDL_Init(SDL_INIT_EVERYTHING) == 0)
     {
         // init the window
-        gWindow = SDL_CreateWindow(title, xPos, yPos, width, height, flags);
+        mainWindow = SDL_CreateWindow(title, xPos, yPos, width, height, flags);
 
-        if(gWindow != nullptr){
+        if(mainWindow != nullptr){
             std::cout << "window creation success\n";
-            gRenderer = SDL_CreateRenderer(gWindow, -1, 0);
-            if(gRenderer != nullptr)
+            renderer = SDL_CreateRenderer(mainWindow, -1, 0);
+            if(renderer != nullptr)
             {
                 std::cout << "renderer creation success\n";
-                SDL_SetRenderDrawColor(gRenderer,0,0,0,255);
+                SDL_SetRenderDrawColor(renderer,0,0,0,255);
                 running = true;
 
-                if (SDL_Surface* pTempSurface =  IMG_Load("resources/pack/Effect Block-Sheet.png");
-                    pTempSurface == nullptr) std::cout << "surface fail\n";
-                else {
-                    gTexture = SDL_CreateTextureFromSurface(gRenderer, pTempSurface);
-                    SDL_FreeSurface(pTempSurface);
-
-                    SDL_QueryTexture(gTexture, nullptr, nullptr,
-                        &sourceRectangle.w, &sourceRectangle.h);
-
-                    destinationRectangle.x = sourceRectangle.x = 0;
-                    destinationRectangle.y = sourceRectangle.y = 0;
-                    sourceRectangle.w = 32;
-                    sourceRectangle.h = 32;
-                    destinationRectangle.w = 50;
-                    destinationRectangle.h = 50;
+                if(!TheTextureManager::Instance()->load("resources/pack/Effect Block-Sheet.png", "animate", renderer))
+                {
+                    std::cout << "failed to load animation texture\n";
                 }
 
             }
@@ -59,16 +49,16 @@ void Game::init(const char* title, int xPos, int yPos, int width,
 }
 
 void Game::render() {
-    SDL_RenderClear(gRenderer); // clear the renderer to the draw color
+    SDL_RenderClear(renderer); // clear the renderer to the draw color
 
-    SDL_RenderCopyEx(gRenderer, gTexture, &sourceRectangle,
-        &destinationRectangle, 0, 0, SDL_FLIP_HORIZONTAL);
+    TheTextureManager::Instance()->draw("animate", 0,0, 32, 32,  renderer);
+    TheTextureManager::Instance()->drawFrame("animate", 100,100, 32, 32, 1, currentFrame, renderer);
 
-    SDL_RenderPresent(gRenderer); // draw to the screen
+    SDL_RenderPresent(renderer); // draw to the screen
 }
 
 void Game::update() {
-    sourceRectangle.x = 32 * static_cast<int>((SDL_GetTicks() / 200) % 5);
+    currentFrame = static_cast<int>(((SDL_GetTicks() / 100) % 5));
 }
 
 void Game::handleEvents() {
@@ -88,8 +78,8 @@ void Game::handleEvents() {
 
 void Game::clean() {
     std::cout << "cleaning game\n";
-    SDL_DestroyWindow(gWindow);
-    SDL_DestroyRenderer(gRenderer);
+    SDL_DestroyWindow(mainWindow);
+    SDL_DestroyRenderer(renderer);
     SDL_Quit();
 }
 
