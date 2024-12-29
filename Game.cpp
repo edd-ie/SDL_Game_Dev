@@ -35,9 +35,11 @@ void Game::init(const char* title, int xPos, int yPos, int width,
                 SDL_SetRenderDrawColor(renderer,0,0,0,255);
                 running = true;
 
-                if(!TheTextureManager::Instance()->load("resources/pack/Effect Block-Sheet.png", "animate", renderer))
+                if(TheTextureManager::Instance()->
+                    load("resources/pack/Effect Block-Sheet.png", "animate", renderer))
                 {
-                    std::cout << "failed to load animation texture\n";
+                    gameObj.load(100, 100, 32, 32, "animate");
+                    player.load(300, 300, 32, 32, "animate");
                 }
 
             }
@@ -51,14 +53,16 @@ void Game::init(const char* title, int xPos, int yPos, int width,
 void Game::render() {
     SDL_RenderClear(renderer); // clear the renderer to the draw color
 
-    TheTextureManager::Instance()->draw("animate", 0,0, 32, 32,  renderer);
-    TheTextureManager::Instance()->drawFrame("animate", 100,100, 32, 32, 1, currentFrame, renderer);
+    gameObj.draw(renderer);
+    player.draw(renderer);
 
     SDL_RenderPresent(renderer); // draw to the screen
 }
 
 void Game::update() {
     currentFrame = static_cast<int>(((SDL_GetTicks() / 100) % 5));
+    gameObj.update();
+    player.update();
 }
 
 void Game::handleEvents() {

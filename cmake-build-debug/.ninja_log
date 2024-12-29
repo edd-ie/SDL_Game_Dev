@@ -1,13 +1,13 @@
 # ninja log v6
-8	2261	7566895821086719	CMakeFiles/sdlTest.dir/main.cpp.obj	9ab2e1210223d92f
-1685	1818	7566999715560065	sdlTest.exe	26ab177d00d8407a
-10	1684	7566999698814861	CMakeFiles/sdlTest.dir/Game.cpp.obj	b6a5ee84ed6367a0
-7	296	7569581333205742	build.ninja	c2fff5d31a74ed5c
-17	1850	7569581333664521	CMakeFiles/sdlTest.dir/Game.cpp.obj	b6a5ee84ed6367a0
-12	1904	7569581333614651	CMakeFiles/sdlTest.dir/TextureManger.cpp.obj	289bf0a51a0b022a
-22	2411	7569581333714372	CMakeFiles/sdlTest.dir/main.cpp.obj	9ab2e1210223d92f
-2412	2854	7569581357600451	sdlTest.exe	3afe864a81f6c4e7
-8	1778	7569607033260654	CMakeFiles/sdlTest.dir/TextureManger.cpp.obj	289bf0a51a0b022a
 19	2536	7569607033370369	CMakeFiles/sdlTest.dir/main.cpp.obj	9ab2e1210223d92f
-7	1566	7569607763679423	CMakeFiles/sdlTest.dir/Game.cpp.obj	b6a5ee84ed6367a0
 1567	1737	7569607779277264	sdlTest.exe	3afe864a81f6c4e7
+7	1566	7569607763679423	CMakeFiles/sdlTest.dir/Game.cpp.obj	b6a5ee84ed6367a0
+7	296	7572148984786846	build.ninja	c2fff5d31a74ed5c
+8	1778	7569607033260654	CMakeFiles/sdlTest.dir/TextureManger.cpp.obj	289bf0a51a0b022a
+32	2062	7572154605111820	CMakeFiles/sdlTest.dir/Player.cpp.obj	de852ff7ab5e4674
+26	2153	7572154605051075	CMakeFiles/sdlTest.dir/GameObject.cpp.obj	c71ce77240e68984
+12	2181	7572154604919222	CMakeFiles/sdlTest.dir/Game.cpp.obj	b6a5ee84ed6367a0
+20	2833	7572154605000512	CMakeFiles/sdlTest.dir/main.cpp.obj	9ab2e1210223d92f
+2833	3385	7572154633124093	sdlTest.exe	fb5c5e4909429d2c
+13	1804	7572329922203095	CMakeFiles/sdlTest.dir/Game.cpp.obj	b6a5ee84ed6367a0
+1804	2013	7572329940113408	sdlTest.exe	fb5c5e4909429d2c

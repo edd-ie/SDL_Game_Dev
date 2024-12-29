@@ -6,6 +6,8 @@
 #define GAME_H
 
 #include<SDL.h>
+#include "GameObject.h"
+#include "Player.h"
 
 class TextureManager;
 
@@ -17,7 +19,12 @@ class Game {
     // Drawing
     int currentFrame;
 
+    // Logic
     bool running;
+
+    // Objects
+    GameObject gameObj;
+    Player player;
 public:
     Game();
     ~Game();
