@@ -15,7 +15,11 @@ include_directories(${SDL_IMAGE_INCLUDE_DIR})
 
 add_executable(sdlTest TextureManger.cpp
         Game.cpp
-        main.cpp)
+        main.cpp
+        GameObject.h
+        GameObject.cpp
+        Player.h
+        Player.cpp)
 
 target_link_libraries(${PROJECT_NAME} ${SDL2_LIBRARY})
 target_link_libraries(${PROJECT_NAME} ${SDL_IMAGE_LIBRARY})
