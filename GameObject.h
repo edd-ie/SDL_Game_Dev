@@ -14,12 +14,12 @@
 class GameObject {
 protected:
     std::string textureID;
-    int currentFrame;
-    int currentRow;
-    int xPos;
-    int yPos;
-    int objWidth;
-    int objHeight;
+    int currentFrame=0;
+    int currentRow=0;
+    int xPos=0;
+    int yPos=0;
+    int objWidth=0;
+    int objHeight=0;
 public:
     void load(int x, int y, int width, int height, std::string texture_id);
     void draw(SDL_Renderer* renderer);
