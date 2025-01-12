@@ -84,6 +84,13 @@ build CMakeFiles/sdlTest.dir/Player.cpp.obj: CXX_COMPILER__sdlTest_unscanned_Deb
   OBJECT_DIR = CMakeFiles\sdlTest.dir
   OBJECT_FILE_DIR = CMakeFiles\sdlTest.dir
 
+build CMakeFiles/sdlTest.dir/Enemy.cpp.obj: CXX_COMPILER__sdlTest_unscanned_Debug X$:/Code/C++/sdlTest/Enemy.cpp || cmake_object_order_depends_target_sdlTest
+  DEP_FILE = CMakeFiles\sdlTest.dir\Enemy.cpp.obj.d
+  FLAGS = -g -std=gnu++23 -fdiagnostics-color=always
+  INCLUDES = -IX:/Code/C++/SDL2/x86_64-w64-mingw32/include/SDL2 -IX:/Code/C++/SDL2_image/x86_64-w64-mingw32/include/SDL2
+  OBJECT_DIR = CMakeFiles\sdlTest.dir
+  OBJECT_FILE_DIR = CMakeFiles\sdlTest.dir
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target sdlTest
@@ -92,7 +99,7 @@ build CMakeFiles/sdlTest.dir/Player.cpp.obj: CXX_COMPILER__sdlTest_unscanned_Deb
 #############################################
 # Link the executable sdlTest.exe
 
-build sdlTest.exe: CXX_EXECUTABLE_LINKER__sdlTest_Debug CMakeFiles/sdlTest.dir/TextureManger.cpp.obj CMakeFiles/sdlTest.dir/Game.cpp.obj CMakeFiles/sdlTest.dir/main.cpp.obj CMakeFiles/sdlTest.dir/GameObject.cpp.obj CMakeFiles/sdlTest.dir/Player.cpp.obj | X$:/Code/C++/SDL2/x86_64-w64-mingw32/lib/libSDL2main.a X$:/Code/C++/SDL2/x86_64-w64-mingw32/lib/libSDL2.dll.a X$:/Code/C++/SDL2_image/x86_64-w64-mingw32/lib/libSDL2_image.dll.a
+build sdlTest.exe: CXX_EXECUTABLE_LINKER__sdlTest_Debug CMakeFiles/sdlTest.dir/TextureManger.cpp.obj CMakeFiles/sdlTest.dir/Game.cpp.obj CMakeFiles/sdlTest.dir/main.cpp.obj CMakeFiles/sdlTest.dir/GameObject.cpp.obj CMakeFiles/sdlTest.dir/Player.cpp.obj CMakeFiles/sdlTest.dir/Enemy.cpp.obj | X$:/Code/C++/SDL2/x86_64-w64-mingw32/lib/libSDL2main.a X$:/Code/C++/SDL2/x86_64-w64-mingw32/lib/libSDL2.dll.a X$:/Code/C++/SDL2_image/x86_64-w64-mingw32/lib/libSDL2_image.dll.a
   FLAGS = -g
   LINK_LIBRARIES = -lmingw32  -mwindows  X:/Code/C++/SDL2/x86_64-w64-mingw32/lib/libSDL2main.a  X:/Code/C++/SDL2/x86_64-w64-mingw32/lib/libSDL2.dll.a  X:/Code/C++/SDL2_image/x86_64-w64-mingw32/lib/libSDL2_image.dll.a  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\sdlTest.dir

@@ -6,6 +6,8 @@
 #define GAME_H
 
 #include<SDL.h>
+#include <vector>
+
 #include "GameObject.h"
 #include "Player.h"
 
@@ -23,8 +25,8 @@ class Game {
     bool running;
 
     // Objects
-    GameObject gameObj;
-    Player player;
+    std::vector<GameObject*> gameObjects;
+
 public:
     Game();
     ~Game();
@@ -36,7 +38,7 @@ public:
     void update();
     void handleEvents();
     void clean();
-    bool isRunning() const;
+    [[nodiscard]] bool isRunning() const;
 };
 
 

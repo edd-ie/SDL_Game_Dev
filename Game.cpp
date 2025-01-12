@@ -4,6 +4,8 @@
 
 #include<iostream>
 #include "Game.h"
+
+#include "Enemy.h"
 #include "TextureManager.h"
 
 
@@ -38,8 +40,19 @@ void Game::init(const char* title, int xPos, int yPos, int width,
                 if(TheTextureManager::Instance()->
                     load("resources/pack/Effect Block-Sheet.png", "animate", renderer))
                 {
-                    gameObj.load(100, 100, 32, 32, "animate");
-                    player.load(300, 300, 32, 32, "animate");
+                    auto* obj = new GameObject();
+                    GameObject* player1 = new Player();
+                    GameObject* enemy1 = new Enemy();
+
+                    obj->load(100, 100, 32, 32, "animate");
+                    player1->load(300, 300, 32, 32, "animate");
+                    enemy1->load(0, 0, 32, 32, "animate");
+
+
+                    gameObjects.push_back(obj);
+                    gameObjects.push_back(player1);
+                    gameObjects.push_back(enemy1);
+
                 }
 
             }
@@ -53,16 +66,19 @@ void Game::init(const char* title, int xPos, int yPos, int width,
 void Game::render() {
     SDL_RenderClear(renderer); // clear the renderer to the draw color
 
-    gameObj.draw(renderer);
-    player.draw(renderer);
+    // loop through our objects and draw them
+    for(auto & gameObject : gameObjects){
+        gameObject->draw(renderer);
+    }
 
     SDL_RenderPresent(renderer); // draw to the screen
 }
 
 void Game::update() {
     currentFrame = static_cast<int>(((SDL_GetTicks() / 100) % 5));
-    gameObj.update();
-    player.update();
+    for(auto & gameObject : gameObjects){
+        gameObject->update();
+    }
 }
 
 void Game::handleEvents() {

@@ -19,7 +19,9 @@ add_executable(sdlTest TextureManger.cpp
         GameObject.h
         GameObject.cpp
         Player.h
-        Player.cpp)
+        Player.cpp
+        Enemy.h
+        Enemy.cpp)
 
 target_link_libraries(${PROJECT_NAME} ${SDL2_LIBRARY})
 target_link_libraries(${PROJECT_NAME} ${SDL_IMAGE_LIBRARY})

@@ -21,10 +21,12 @@ protected:
     int objWidth=0;
     int objHeight=0;
 public:
-    void load(int x, int y, int width, int height, std::string texture_id);
-    void draw(SDL_Renderer* renderer);
-    void update();
-    void clean();
+    virtual ~GameObject() = default;
+
+    virtual void load(int x, int y, int width, int height, std::string texture_id);
+    virtual void draw(SDL_Renderer* renderer);
+    virtual void update();
+    // virtual void clean();
 };
 
 #endif //GAMEOBJECT_H

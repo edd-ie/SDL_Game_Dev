@@ -1,13 +1,13 @@
 //
-// Created by _edd.ie_ on 29/12/2024.
+// Created by _edd.ie_ on 12/01/2025.
 //
 
-#ifndef PLAYER_H
-#define PLAYER_H
-
+#ifndef ENEMY_H
+#define ENEMY_H
 #include "GameObject.h"
 
-class Player : public GameObject { // inherit from GameObject
+class Enemy : public GameObject
+{
 public:
     void load(int x, int y, int width, int height, std::string textureID) override;
     void draw(SDL_Renderer* renderer) override;
@@ -15,4 +15,4 @@ public:
     // void clean() override;
 };
 
-#endif //PLAYER_H
+#endif //ENEMY_H
